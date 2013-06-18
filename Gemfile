@@ -10,6 +10,7 @@ group :development, :test do
 end
 
 group :production do
+  ruby '2.0.0'
   gem 'pg'
 end
 
