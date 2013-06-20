@@ -1,7 +1,7 @@
 class CreateDepartments < ActiveRecord::Migration
   def change
     create_table :departments do |t|
-      t.string :name
+      t.string :name, :null => false
       t.integer :leader_id
       t.integer :logistic_responsible_id
       t.integer :kit_manager_id

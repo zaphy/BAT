@@ -11,48 +11,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130620133843) do
-
-  create_table "departments", :force => true do |t|
-    t.string   "name"
-    t.integer  "leader_id"
-    t.integer  "logistic_responsible_id"
-    t.integer  "kit_manager_id"
-    t.integer  "communication_responsible_id"
-    t.integer  "finance_responsible_id"
-    t.integer  "referee_id"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
-    t.string   "email"
-    t.integer  "default_team_id"
-    t.integer  "deputy_leader_id"
-    t.integer  "licence_responsible_id"
-    t.integer  "training_coordinator_id"
-  end
-
-  create_table "members", :force => true do |t|
-    t.string   "last_name"
-    t.string   "first_name"
-    t.string   "address_street"
-    t.string   "address_house_number"
-    t.string   "postal_code"
-    t.string   "city"
-    t.date     "birthday"
-    t.integer  "team_id"
-    t.date     "membership_started_on"
-    t.date     "membership_finished_on"
-    t.boolean  "enabled"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
-  end
-
-  create_table "teams", :force => true do |t|
-    t.string   "name"
-    t.integer  "trainer_id"
-    t.integer  "deputy_trainer_id"
-    t.integer  "department_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
-  end
+ActiveRecord::Schema.define(:version => 0) do
 
 end
