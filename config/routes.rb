@@ -1,4 +1,7 @@
 BAT::Application.routes.draw do
+  resources :teams
+
+
   resources :departments
 
 
