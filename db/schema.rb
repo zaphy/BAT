@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130620133843) do
+ActiveRecord::Schema.define(:version => 20130620135148) do
 
   create_table "departments", :force => true do |t|
     t.string   "name",                         :null => false
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20130620133843) do
     t.boolean  "enabled",                :default => false
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
+    t.boolean  "official",               :default => false
   end
 
   create_table "teams", :force => true do |t|
