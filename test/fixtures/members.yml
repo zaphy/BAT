@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  last_name: MyString
+  first_name: MyString
+  address_street: MyString
+  address_house_number: MyString
+  postal_code: MyString
+  city: MyString
+  birthday: 2013-06-20
+  team_id: 1
+  membership_started_on: 2013-06-20
+  membership_finished_on: 2013-06-20
+  enabled: false
+
+two:
+  last_name: MyString
+  first_name: MyString
+  address_street: MyString
+  address_house_number: MyString
+  postal_code: MyString
+  city: MyString
+  birthday: 2013-06-20
+  team_id: 1
+  membership_started_on: 2013-06-20
+  membership_finished_on: 2013-06-20
+  enabled: false
