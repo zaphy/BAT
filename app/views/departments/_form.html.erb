@@ -1,0 +1,45 @@
+<%= form_for(@department) do |f| %>
+  <% if @department.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@department.errors.count, "error") %> prohibited this department from being saved:</h2>
+
+      <ul>
+      <% @department.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :leader_id %><br />
+    <%= f.number_field :leader_id %>
+  </div>
+  <div class="field">
+    <%= f.label :logistic_responsible_id %><br />
+    <%= f.number_field :logistic_responsible_id %>
+  </div>
+  <div class="field">
+    <%= f.label :kit_manager_id %><br />
+    <%= f.number_field :kit_manager_id %>
+  </div>
+  <div class="field">
+    <%= f.label :communication_responsible_id %><br />
+    <%= f.number_field :communication_responsible_id %>
+  </div>
+  <div class="field">
+    <%= f.label :finance_responsible_id %><br />
+    <%= f.number_field :finance_responsible_id %>
+  </div>
+  <div class="field">
+    <%= f.label :referee_id %><br />
+    <%= f.number_field :referee_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

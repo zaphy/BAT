@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  leader_id: 1
+  logistic_responsible_id: 1
+  kit_manager_id: 1
+  communication_responsible_id: 1
+  finance_responsible_id: 1
+  referee_id: 1
+
+two:
+  name: MyString
+  leader_id: 1
+  logistic_responsible_id: 1
+  kit_manager_id: 1
+  communication_responsible_id: 1
+  finance_responsible_id: 1
+  referee_id: 1

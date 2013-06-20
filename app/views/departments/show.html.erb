@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @department.name %>
+</p>
+
+<p>
+  <b>Leader:</b>
+  <%= @department.leader_id %>
+</p>
+
+<p>
+  <b>Logistic responsible:</b>
+  <%= @department.logistic_responsible_id %>
+</p>
+
+<p>
+  <b>Kit manager:</b>
+  <%= @department.kit_manager_id %>
+</p>
+
+<p>
+  <b>Communication responsible:</b>
+  <%= @department.communication_responsible_id %>
+</p>
+
+<p>
+  <b>Finance responsible:</b>
+  <%= @department.finance_responsible_id %>
+</p>
+
+<p>
+  <b>Referee:</b>
+  <%= @department.referee_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_department_path(@department) %> |
+<%= link_to 'Back', departments_path %>
