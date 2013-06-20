@@ -11,7 +11,7 @@ class CreateMembers < ActiveRecord::Migration
       t.integer :team_id
       t.date :membership_started_on
       t.date :membership_finished_on
-      t.boolean :enabled, :default = false
+      t.boolean :enabled, :default => false
 
       t.timestamps
     end
