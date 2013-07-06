@@ -7,7 +7,6 @@ gem 'rails', '3.2.13'
 
 group :development, :test do
   gem 'sqlite3'
-  gem "faker"
 end
 
 group :production do
@@ -20,6 +19,9 @@ gem "devise"
 
 #role management
 gem "cancan"
+
+# db:seed
+gem "faker"
 
 # Gems used only for assets and not required
 # in production environments by default.
