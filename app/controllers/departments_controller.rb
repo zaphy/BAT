@@ -1,4 +1,7 @@
 class DepartmentsController < ApplicationController
+  before_filter :authenticate_admin!
+
+
   # GET /departments
   # GET /departments.json
   def index
@@ -57,6 +60,8 @@ class DepartmentsController < ApplicationController
   # PUT /departments/1.json
   def update
     @department = Department.find(params[:id])
+    @department.email = params[:department][:email]
+    
 
     respond_to do |format|
       if @department.update_attributes(params[:department])
