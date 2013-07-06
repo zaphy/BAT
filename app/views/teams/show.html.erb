@@ -1,25 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @team.name %>
-</p>
-
-<p>
-  <b>Trainer:</b>
-  <%= @team.trainer_id %>
-</p>
-
-<p>
-  <b>Deputy trainer:</b>
-  <%= @team.deputy_trainer_id %>
-</p>
-
-<p>
+<p class="department_name">
   <b>Department:</b>
-  <%= @team.department_id %>
+  <%= link_to @team.department.name, @team.department %>
 </p>
 
+<%= render :partial => "teams/team", :locals => {:team => @team} %>
 
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
+
+<div style="clear:both">
+  <%= link_to 'Edit', edit_team_path(@team) %> |
+  <%= link_to 'Back', teams_path %>
+</div>

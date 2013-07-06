@@ -2,10 +2,11 @@
 
 <table>
   <tr>
+    <th>Department</th>
     <th>Name</th>
     <th>Trainer</th>
     <th>Deputy trainer</th>
-    <th>Department</th>
+    <th>Members</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,10 +14,11 @@
 
 <% @teams.each do |team| %>
   <tr>
-    <td><%= team.name %></td>
-    <td><%= team.trainer_id %></td>
-    <td><%= team.deputy_trainer_id %></td>
-    <td><%= team.department_id %></td>
+    <td><%= link_to team.department.name, team.department %></td>
+    <td style="background-color: <%= team.background_color%>"><%= team.name %></td>
+    <td><%= team.trainer_name %></td>
+    <td><%= team.deputy_trainer_name %></td>
+    <td><%= team.members.size %></td>
     <td><%= link_to 'Show', team %></td>
     <td><%= link_to 'Edit', edit_team_path(team) %></td>
     <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>

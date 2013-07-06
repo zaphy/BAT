@@ -2,11 +2,11 @@ class MembersController < ApplicationController
   # GET /members
   # GET /members.json
   def index
-    @members = Member.all
+    @members = Member.enabled
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @members }
+      format.json { render json: @active_members }
     end
   end
 
@@ -25,6 +25,8 @@ class MembersController < ApplicationController
   # GET /members/new.json
   def new
     @member = Member.new
+    @member.birthday = Date.today - 5.years
+    @teams = Team.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +37,7 @@ class MembersController < ApplicationController
   # GET /members/1/edit
   def edit
     @member = Member.find(params[:id])
+    @teams = Team.all
   end
 
   # POST /members

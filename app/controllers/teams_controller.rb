@@ -25,7 +25,10 @@ class TeamsController < ApplicationController
   # GET /teams/new.json
   def new
     @team = Team.new
-
+    @departments = Department.all
+    @officials = Member.officials
+    @all_members = Member.enabled
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @team }
@@ -35,6 +38,9 @@ class TeamsController < ApplicationController
   # GET /teams/1/edit
   def edit
     @team = Team.find(params[:id])
+    @departments = Department.all
+    @officials = Member.officials
+    @all_members = Member.enabled
   end
 
   # POST /teams

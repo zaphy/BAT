@@ -1,35 +1,13 @@
 <h1>Listing departments</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Leader</th>
-    <th>Logistic responsible</th>
-    <th>Kit manager</th>
-    <th>Communication responsible</th>
-    <th>Finance responsible</th>
-    <th>Referee</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div style="clear:both">
+  <%= link_to 'New Department', new_department_path %>
+</div>
 
-<% @departments.each do |department| %>
-  <tr>
-    <td><%= department.name %></td>
-    <td><%= department.leader_id %></td>
-    <td><%= department.logistic_responsible_id %></td>
-    <td><%= department.kit_manager_id %></td>
-    <td><%= department.communication_responsible_id %></td>
-    <td><%= department.finance_responsible_id %></td>
-    <td><%= department.referee_id %></td>
-    <td><%= link_to 'Show', department %></td>
-    <td><%= link_to 'Edit', edit_department_path(department) %></td>
-    <td><%= link_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<%= render @departments %>
 
 <br />
 
-<%= link_to 'New Department', new_department_path %>
+<div style="clear:both">
+  <%= link_to 'New Department', new_department_path %>
+</div>

@@ -1,0 +1,15 @@
+<div class="team_detailed_view">
+
+<%= render :partial => "teams/header", :locals => {:team => team} %>
+
+<p class="team_member_list">
+  <b>Member:</b>
+  <ul>
+  <% team.members.each do |member| %>
+    <li>
+    <%= member.fullname %>
+    </li>
+  <% end %>
+  </ul>
+</p>
+</div>

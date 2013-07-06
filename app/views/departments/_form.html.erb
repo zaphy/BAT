@@ -20,28 +20,67 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :leader_id %><br />
-    <%= f.number_field :leader_id %>
+    <%= f.label :leader %><br />
+    <% @officials.each do |member| %>
+      <div>
+        <%= f.radio_button("leader_id", member.id) %>
+        <%= f.label(:member, member.fullname) %>
+      </div>
+    <% end %>
   </div>
   <div class="field">
-    <%= f.label :logistic_responsible_id %><br />
-    <%= f.number_field :logistic_responsible_id %>
+    <%= f.label :default_team %><br />
+    <% @department.teams.each do |team| %>
+      <div>
+        <%= f.radio_button(:default_team_id, team.id) %>
+        <%= f.label(:team, team.name) %>
+      </div>
+    <% end %>
   </div>
   <div class="field">
-    <%= f.label :kit_manager_id %><br />
-    <%= f.number_field :kit_manager_id %>
+    <%= f.label :logistic_responsible %><br />
+    <% @officials.each do |member| %>
+      <div>
+        <%= f.radio_button(:logistic_responsible_id, member.id) %>
+        <%= f.label(:member, member.fullname) %>
+      </div>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :kit_manager %><br />
+    <% @officials.each do |member| %>
+      <div>
+        <%= f.radio_button(:kit_manager_id, member.id) %>
+        <%= f.label(:member, member.fullname) %>
+      </div>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :communication_responsible_id %><br />
-    <%= f.number_field :communication_responsible_id %>
+    <% @officials.each do |member| %>
+      <div>
+        <%= f.radio_button(:communication_responsible_id, member.id) %>
+        <%= f.label(:member, member.fullname) %>
+      </div>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :finance_responsible_id %><br />
-    <%= f.number_field :finance_responsible_id %>
+    <% @officials.each do |member| %>
+      <div>
+        <%= f.radio_button(:finance_responsible_id, member.id) %>
+        <%= f.label(:member, member.fullname) %>
+      </div>
+    <% end %>
   </div>
   <div class="field">
     <%= f.label :referee_id %><br />
-    <%= f.number_field :referee_id %>
+    <% @officials.each do |member| %>
+      <div>
+        <%= f.radio_button(:referee_id, member.id) %>
+        <%= f.label(:member, member.fullname) %>
+      </div>
+    <% end %>
   </div>
   <div class="actions">
     <%= f.submit %>

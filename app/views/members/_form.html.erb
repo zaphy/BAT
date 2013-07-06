@@ -1,3 +1,4 @@
+<div style="border-style:solid">
 <%= form_for(@member) do |f| %>
   <% if @member.errors.any? %>
     <div id="error_explanation">
@@ -11,6 +12,7 @@
     </div>
   <% end %>
 
+<div>
   <div class="field">
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name %>
@@ -35,27 +37,42 @@
     <%= f.label :city %><br />
     <%= f.text_field :city %>
   </div>
+</div>
+<div>
   <div class="field">
     <%= f.label :birthday %><br />
     <%= f.date_select :birthday %>
   </div>
-  <div class="field">
-    <%= f.label :team_id %><br />
-    <%= f.number_field :team_id %>
+</div>
+<div style="border-top-style:solid">
+<% @teams.each do |team| %>
+  <div class="team_detailed_view">
+    <%= render :partial => "teams/header", :locals => {:team => team} %>
   </div>
+<% end %>
+</div>
+<div style="border-top-style:solid;border-bottom-style:solid; clear:both">
   <div class="field">
     <%= f.label :membership_started_on %><br />
-    <%= f.date_select :membership_started_on %>
+    <%= f.date_select :membership_started_on, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :membership_finished_on %><br />
-    <%= f.date_select :membership_finished_on %>
+    <%= f.date_select :membership_finished_on, :include_blank => true %>
   </div>
+</div>
+<div>
   <div class="field">
     <%= f.label :enabled %><br />
     <%= f.check_box :enabled %>
   </div>
+  <div class="field">
+    <%= f.label :has_official_function? %><br />
+    <%= f.check_box :official %>
+  </div>
+</div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</div>

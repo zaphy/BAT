@@ -1,3 +1,4 @@
+<div style="loat:left">
 <%= form_for(@team) do |f| %>
   <% if @team.errors.any? %>
     <div id="error_explanation">
@@ -10,24 +11,53 @@
       </ul>
     </div>
   <% end %>
-
+  
   <div class="field">
+    <%= f.label :department_id %><br />
+    <% @departments.each do |department| %>
+      <%= f.radio_button("department_id", department.id) %>
+      <%= f.label(:department, department.name) %>
+      (<%= link_to "show", department %>)
+    <% end %>
+  </div>
+  
+<div class="team_detailed_view">
+  <div class="team_name">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-  <div class="field">
+  
+  <div class="trainer_name" style="float:left">
     <%= f.label :trainer_id %><br />
-    <%= f.number_field :trainer_id %>
+    <% @officials.each do |member| %>
+      <div>
+        <%= f.radio_button("trainer_id", member.id) %>
+        <%= f.label(:member, member.fullname) %>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
+  
+  <div class="trainer_name" style="float:left;border-left-style:solid">
     <%= f.label :deputy_trainer_id %><br />
-    <%= f.number_field :deputy_trainer_id %>
+    <% @officials.each do |member| %>
+      <div>
+        <%= f.radio_button("deputy_trainer_id", member.id) %>
+        <%= f.label(:member, member.fullname) %>
+      </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :department_id %><br />
-    <%= f.number_field :department_id %>
+  
+  <div class="color" style="clear:both;padding:1ex;border-top-style:solid;border-bottom-style:solid;">
+    <%= f.label :background_color %><br />
+    <%= f.text_field :background_color %>
   </div>
-  <div class="actions">
+  
+  <div class="actions" style="text-align:center">
     <%= f.submit %>
   </div>
+</div>
+
 <% end %>
+</div>
+
+<div style="clear:both"></div>

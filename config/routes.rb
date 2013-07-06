@@ -1,5 +1,6 @@
 BAT::Application.routes.draw do
-  devise_for :admins
+  resources :team_memberships
+
 
   resources :members
 
@@ -61,7 +62,7 @@ BAT::Application.routes.draw do
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
   
-  root :to => "teams#index"
+  root :to => "departments#index"
 
   # See how all your routes lay out with "rake routes"
 

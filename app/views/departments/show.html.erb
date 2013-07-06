@@ -2,7 +2,7 @@
 
 <p>
   <b>Name:</b>
-  <%= @department.name %>
+  <%= link_to @department.name, @department %>
 </p>
 
 <p>
@@ -36,5 +36,9 @@
 </p>
 
 
+<%= render @teams %>
+
+<div style="clear:both">
 <%= link_to 'Edit', edit_department_path(@department) %> |
 <%= link_to 'Back', departments_path %>
+</div>

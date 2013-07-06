@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130620135148) do
+ActiveRecord::Schema.define(:version => 20130706143435) do
 
   create_table "departments", :force => true do |t|
     t.string   "name",                         :null => false
@@ -38,13 +38,19 @@ ActiveRecord::Schema.define(:version => 20130620135148) do
     t.string   "postal_code",                               :null => false
     t.string   "city",                                      :null => false
     t.date     "birthday"
-    t.integer  "team_id"
     t.date     "membership_started_on"
     t.date     "membership_finished_on"
     t.boolean  "enabled",                :default => false
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.boolean  "official",               :default => false
+  end
+
+  create_table "team_memberships", :force => true do |t|
+    t.integer  "team_id"
+    t.integer  "member_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "teams", :force => true do |t|
@@ -54,6 +60,8 @@ ActiveRecord::Schema.define(:version => 20130620135148) do
     t.integer  "department_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.string   "email"
+    t.string   "background_color"
   end
 
 end

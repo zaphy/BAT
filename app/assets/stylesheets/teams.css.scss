@@ -1,3 +1,36 @@
 // Place all the styles related to the Teams controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.team_detailed_view {
+  border-style: solid;
+  border-width: 3px;
+  float: left;
+  margin: 1ex;
+}
+
+.trainer_name {
+  padding: 1ex;
+  margin: 0ex;
+}
+
+
+.team_name {
+  margin: 0ex;
+  padding: 1ex;
+  border-bottom-style: solid;
+  border-width: 2px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.team_member_list {
+  border-top-style: solid;
+  border-width: 2px;
+  padding: 1ex;
+}
+
+ul {
+  padding-right: 2ex;
+}
+

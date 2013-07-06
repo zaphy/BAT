@@ -1,5 +1,5 @@
 class DepartmentsController < ApplicationController
-  before_filter :authenticate_admin!
+  #before_filter :authenticate_admin!
 
 
   # GET /departments
@@ -17,6 +17,7 @@ class DepartmentsController < ApplicationController
   # GET /departments/1.json
   def show
     @department = Department.find(params[:id])
+    @teams = @department.teams
 
     respond_to do |format|
       format.html # show.html.erb
@@ -28,7 +29,8 @@ class DepartmentsController < ApplicationController
   # GET /departments/new.json
   def new
     @department = Department.new
-
+    @officials = Member.officials
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @department }
@@ -38,6 +40,7 @@ class DepartmentsController < ApplicationController
   # GET /departments/1/edit
   def edit
     @department = Department.find(params[:id])
+    @officials = Member.officials
   end
 
   # POST /departments
@@ -59,9 +62,7 @@ class DepartmentsController < ApplicationController
   # PUT /departments/1
   # PUT /departments/1.json
   def update
-    @department = Department.find(params[:id])
-    @department.email = params[:department][:email]
-    
+    @department = Department.find(params[:id])    
 
     respond_to do |format|
       if @department.update_attributes(params[:department])
