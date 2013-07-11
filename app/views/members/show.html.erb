@@ -11,6 +11,15 @@
 </p>
 
 <p>
+  <b>member of teams:</b>
+  <ul>
+  <% @member.teams.each do |team| -%>
+    <li><%= link_to team.name, team %></li>
+  <% end -%>
+  </ul>
+</p>
+
+<p>
   <b>street:</b>
   <%= @member.address_street %>
 </p>

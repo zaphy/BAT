@@ -17,6 +17,7 @@ class Member < ActiveRecord::Base
   def fullname
     [first_name, last_name].join(" ")
   end
+  
   def age
     now = Date.today
     now.year - birthday.year - ((now.month > birthday.month || (now.month == birthday.month && now.day >= birthday.day)) ? 0 : 1)
