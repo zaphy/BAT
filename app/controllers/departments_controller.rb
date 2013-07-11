@@ -29,7 +29,12 @@ class DepartmentsController < ApplicationController
   # GET /departments/new.json
   def new
     @department = Department.new
-    @officials = Member.officials
+    @leaders = Member.leaders
+    @logistic_responsibles = Member.logistic_responsibles
+    @kit_manager = Member.kit_managers
+    @communication_responsibles = Member.communication_responsibles
+    @finance_responsibles = Member.finance_responsibles
+    @referees = Member.referees
     
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +45,12 @@ class DepartmentsController < ApplicationController
   # GET /departments/1/edit
   def edit
     @department = Department.find(params[:id])
-    @officials = Member.officials
+    @leaders = Member.leaders
+    @logistic_responsibles = Member.logistic_responsibles
+    @kit_manager = Member.kit_managers
+    @communication_responsibles = Member.communication_responsibles
+    @finance_responsibles = Member.finance_responsibles
+    @referees = Member.referees
   end
 
   # POST /departments

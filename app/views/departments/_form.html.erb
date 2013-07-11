@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :leader %><br />
-    <% @officials.each do |member| %>
+    <% @leaders.each do |member| %>
       <div>
         <%= f.radio_button("leader_id", member.id) %>
         <%= f.label(:member, member.fullname) %>
@@ -39,7 +39,7 @@
   </div>
   <div class="field">
     <%= f.label :logistic_responsible %><br />
-    <% @officials.each do |member| %>
+    <% @logistic_responsibles.each do |member| %>
       <div>
         <%= f.radio_button(:logistic_responsible_id, member.id) %>
         <%= f.label(:member, member.fullname) %>
@@ -48,7 +48,7 @@
   </div>
   <div class="field">
     <%= f.label :kit_manager %><br />
-    <% @officials.each do |member| %>
+    <% @kit_manager.each do |member| %>
       <div>
         <%= f.radio_button(:kit_manager_id, member.id) %>
         <%= f.label(:member, member.fullname) %>
@@ -57,7 +57,7 @@
   </div>
   <div class="field">
     <%= f.label :communication_responsible_id %><br />
-    <% @officials.each do |member| %>
+    <% @communication_responsibles.each do |member| %>
       <div>
         <%= f.radio_button(:communication_responsible_id, member.id) %>
         <%= f.label(:member, member.fullname) %>
@@ -66,7 +66,7 @@
   </div>
   <div class="field">
     <%= f.label :finance_responsible_id %><br />
-    <% @officials.each do |member| %>
+    <% @finance_responsibles.each do |member| %>
       <div>
         <%= f.radio_button(:finance_responsible_id, member.id) %>
         <%= f.label(:member, member.fullname) %>
@@ -75,7 +75,7 @@
   </div>
   <div class="field">
     <%= f.label :referee_id %><br />
-    <% @officials.each do |member| %>
+    <% @referees.each do |member| %>
       <div>
         <%= f.radio_button(:referee_id, member.id) %>
         <%= f.label(:member, member.fullname) %>

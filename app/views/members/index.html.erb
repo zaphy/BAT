@@ -3,6 +3,23 @@
 
 <%= link_to 'New Member', new_member_path %>
 
+<h2>Officials</h2>
+<table>
+<tr>
+  <th>name</th>
+  <% Member::OFFICIAL_FUNCTIONS.each do |official_function| -%>
+    <th><%= official_function.to_s.humanize %></th>
+  <% end -%>
+  <% @officials.each do |member| -%>
+    <tr>
+      <td><%= link_to member.fullname, member %>
+      <% Member::OFFICIAL_FUNCTIONS.each do |official_function| -%>
+        <td><%= member.send(official_function) ? "x" : "" %></td>
+      <% end -%>
+    </tr>
+  <% end -%>
+</table>
+
 <h2>Enabled</h2>
 <table>
   <tr>
@@ -19,7 +36,7 @@
 
 <% @members.each do |member| %>
   <tr>
-    <td><%= member.official ? "x" : "" %></td>
+    <td><%= member.official? ? "x" : "" %></td>
     <td><%= member.last_name %></td>
     <td><%= member.first_name %></td>
     <td><%= member.birthday %> (<%= member.age %>)</td>

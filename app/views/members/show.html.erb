@@ -61,7 +61,12 @@
 
 <p>
   <b>has official function:</b>
-  <%= @member.official %>
+  <%= @member.official? %>
+</p>
+
+<p>
+  <b>roles:</b>
+  <%= @member.official_functions.map{|x| x.to_s.humanize}.join(", ") %>
 </p>
 
 

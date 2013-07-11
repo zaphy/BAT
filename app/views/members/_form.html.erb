@@ -63,12 +63,18 @@
 </div>
 <div>
   <div class="field">
-    <%= f.label :enabled %><br />
     <%= f.check_box :enabled %>
+    <%= f.label :enabled? %>
   </div>
   <div class="field">
-    <%= f.label :has_official_function? %><br />
     <%= f.check_box :official %>
+    <%= f.label :has_official_function? %>
+  </div>
+  <div>
+    <% Member::OFFICIAL_FUNCTIONS.each do |official_function| -%>
+      <%= f.check_box official_function %>      
+      <%= f.label official_function %>
+    <% end %>
   </div>
 </div>
   <div class="actions">

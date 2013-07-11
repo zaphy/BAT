@@ -29,7 +29,7 @@
   
   <div class="trainer_name" style="float:left">
     <%= f.label :trainer_id %><br />
-    <% @officials.each do |member| %>
+    <% @trainers.each do |member| %>
       <div>
         <%= f.radio_button("trainer_id", member.id) %>
         <%= f.label(:member, member.fullname) %>
@@ -39,7 +39,7 @@
   
   <div class="trainer_name" style="float:left;border-left-style:solid">
     <%= f.label :deputy_trainer_id %><br />
-    <% @officials.each do |member| %>
+    <% @deputy_trainers.each do |member| %>
       <div>
         <%= f.radio_button("deputy_trainer_id", member.id) %>
         <%= f.label(:member, member.fullname) %>

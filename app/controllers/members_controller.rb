@@ -3,6 +3,7 @@ class MembersController < ApplicationController
   # GET /members.json
   def index
     @members = Member.enabled
+    @officials = Member.officials
 
     respond_to do |format|
       format.html # index.html.erb

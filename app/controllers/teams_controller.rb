@@ -26,7 +26,8 @@ class TeamsController < ApplicationController
   def new
     @team = Team.new
     @departments = Department.all
-    @officials = Member.officials
+    @trainers = Member.trainers
+    @deputy_trainers = Member.deputy_trainers
     @all_members = Member.enabled
     
     respond_to do |format|
@@ -39,7 +40,8 @@ class TeamsController < ApplicationController
   def edit
     @team = Team.find(params[:id])
     @departments = Department.all
-    @officials = Member.officials
+    @trainers = Member.trainers
+    @deputy_trainers = Member.deputy_trainers
     @all_members = Member.enabled
   end
 
