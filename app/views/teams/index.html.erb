@@ -14,7 +14,7 @@
 
 <% @teams.each do |team| %>
   <tr>
-    <td><%= link_to team.department.name, team.department %></td>
+    <td><%= link_to team.department_name, team.department %></td>
     <td style="background-color: <%= team.background_color%>"><%= team.name %></td>
     <td><%= team.trainer_name %></td>
     <td><%= team.deputy_trainer_name %></td>

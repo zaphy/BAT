@@ -2,7 +2,7 @@
 
 
 <%= render :partial => "members/newest_member_list" %>
-<%= render 'form' %>
+<%= render 'form', :team => @team, :departments => @departments, :trainers => @trainers, :deputy_trainers => @deputy_trainers %>
 
 <div style="clear: both">
 <%= link_to 'Show', @team %> |

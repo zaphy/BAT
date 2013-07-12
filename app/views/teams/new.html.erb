@@ -1,5 +1,5 @@
 <h1>New team</h1>
 
-<%= render 'form' %>
+<%= render 'form', :locals => {:team => @team, :departments => @departments, :trainers => @trainers, :deputy_trainers => @deputy_trainers} %>
 
 <%= link_to 'Back', teams_path %>

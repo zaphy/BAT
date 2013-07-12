@@ -1,6 +1,6 @@
 <h1>Editing member</h1>
 
-<%= render 'form' %>
+<%= render 'form', :member => @member, :teams => @teams %>
 
 <%= link_to 'Show', @member %> |
 <%= link_to 'Back', members_path %>

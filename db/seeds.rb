@@ -23,12 +23,12 @@ if cur_members < MAX_MEMBERS
                            :city => Faker::Address.city, :postal_code => Faker::Address.zip_code}
     membership_started = [Date.today - (1..60).to_a.shuffle.first.months, birthday + 3.years].max
     member_other_data = {:birthday => birthday}
-    # :email => Faker::Internet.free_email, 
-    
+    # :email => Faker::Internet.free_email,
+
     member = Member.create(member_name_data.merge(member_address_data).merge(member_other_data))
     member.enabled = [true, false].shuffle.first
     member.membership_started_on = membership_started
-    
+
     member.save
     $stdout.print "."
     $stdout.flush

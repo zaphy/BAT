@@ -30,7 +30,7 @@ class TeamsController < ApplicationController
     @deputy_trainers = Member.deputy_trainers
     @all_members = Member.enabled
     @newest_members = Member.newest
-    
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @team }
@@ -57,7 +57,7 @@ class TeamsController < ApplicationController
         format.html { redirect_to @team, notice: 'Team was successfully created.' }
         format.json { render json: @team, status: :created, location: @team }
       else
-        format.html { render action: "new" }
+        format.html { render "new" }
         format.json { render json: @team.errors, status: :unprocessable_entity }
       end
     end
@@ -73,7 +73,7 @@ class TeamsController < ApplicationController
         format.html { redirect_to @team, notice: 'Team was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render "edit" }
         format.json { render json: @team.errors, status: :unprocessable_entity }
       end
     end

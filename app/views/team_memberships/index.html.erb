@@ -13,8 +13,8 @@
 <% @team_memberships.each_with_index do |team_membership, idx| %>
   <tr>
     <td><%= idx %></td>
-    <td><%= team_membership.team.name %></td>
-    <td><%= team_membership.member.fullname %></td>
+    <td><%= team_membership.team_name %></td>
+    <td><%= team_membership.member_fullname %></td>
     <td><%= link_to 'Show', team_membership %></td>
     <td><%= link_to 'Edit', edit_team_membership_path(team_membership) %></td>
     <td><%= link_to 'Destroy', team_membership, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -2,7 +2,7 @@
 
 <p class="department_name">
   <b>Department:</b>
-  <%= link_to @team.department.name, @team.department %>
+  <%= link_to @team.department_name, @team.department %>
 </p>
 
 <%= render :partial => "teams/team", :locals => {:team => @team} %>

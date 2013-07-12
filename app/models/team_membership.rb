@@ -3,4 +3,13 @@ class TeamMembership < ActiveRecord::Base
 
   belongs_to :team
   belongs_to :member
+
+  def member_fullname
+    return "" if not member
+    member.fullname
+  end
+  def team_name
+    return "" if not team
+    team.name
+  end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130711203537) do
+ActiveRecord::Schema.define(:version => 20130712195919) do
 
   create_table "departments", :force => true do |t|
     t.string   "name",                         :null => false
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(:version => 20130711203537) do
     t.integer  "licence_responsible_id"
     t.integer  "training_coordinator_id"
   end
+
+  add_index "departments", ["communication_responsible_id"], :name => "index_departments_on_communication_responsible_id"
+  add_index "departments", ["default_team_id"], :name => "index_departments_on_default_team_id"
+  add_index "departments", ["finance_responsible_id"], :name => "index_departments_on_finance_responsible_id"
+  add_index "departments", ["kit_manager_id"], :name => "index_departments_on_kit_manager_id"
+  add_index "departments", ["leader_id"], :name => "index_departments_on_leader_id"
+  add_index "departments", ["logistic_responsible_id"], :name => "index_departments_on_logistic_responsible_id"
+  add_index "departments", ["referee_id"], :name => "index_departments_on_referee_id"
 
   create_table "members", :force => true do |t|
     t.string   "last_name",                                    :null => false
@@ -59,6 +67,9 @@ ActiveRecord::Schema.define(:version => 20130711203537) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "team_memberships", ["member_id"], :name => "index_team_memberships_on_member_id"
+  add_index "team_memberships", ["team_id"], :name => "index_team_memberships_on_team_id"
+
   create_table "teams", :force => true do |t|
     t.string   "name",              :null => false
     t.integer  "trainer_id"
@@ -69,5 +80,9 @@ ActiveRecord::Schema.define(:version => 20130711203537) do
     t.string   "email"
     t.string   "background_color"
   end
+
+  add_index "teams", ["department_id"], :name => "index_teams_on_department_id"
+  add_index "teams", ["deputy_trainer_id"], :name => "index_teams_on_deputy_trainer_id"
+  add_index "teams", ["trainer_id"], :name => "index_teams_on_trainer_id"
 
 end
