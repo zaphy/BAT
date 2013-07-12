@@ -1,0 +1,6 @@
+<div class="member_list" id="newest_member_list">
+  <b>Newest members:</b>
+  <% Member.newest.each do |new_member| -%>
+  <p id="<%= new_member.id %>"><%= link_to new_member.lastname_firstname, new_member %></p>
+  <% end %>
+</div>

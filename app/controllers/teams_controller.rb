@@ -29,6 +29,7 @@ class TeamsController < ApplicationController
     @trainers = Member.trainers
     @deputy_trainers = Member.deputy_trainers
     @all_members = Member.enabled
+    @newest_members = Member.newest
     
     respond_to do |format|
       format.html # new.html.erb
@@ -43,6 +44,7 @@ class TeamsController < ApplicationController
     @trainers = Member.trainers
     @deputy_trainers = Member.deputy_trainers
     @all_members = Member.enabled
+    @newest_members = Member.newest
   end
 
   # POST /teams

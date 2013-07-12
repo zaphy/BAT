@@ -7,7 +7,7 @@ class Member < ActiveRecord::Base
   validates :last_name, :presence => true
   validates :first_name, :presence => true
   
-  has_many :team_memberships
+  has_many :team_memberships, :dependent => :destroy
   has_many :teams, :through => :team_memberships
   
   scope :enabled, where(:enabled => true).order(:last_name)
@@ -22,6 +22,8 @@ class Member < ActiveRecord::Base
   scope :finance_responsibles, where(:finance_responsible => true).order(:last_name)
   scope :referees, where(:referee => true).order(:last_name)
   
+  scope :newest, lambda { where("membership_started_on > ?", 2.weeks.ago).order(:membership_started_on) }
+    
   OFFICIAL_FUNCTIONS = [:trainer, :leader, :logistic_responsible, :kit_manager, :communication_responsible, :finance_responsible, :referee]
   
   def self.officials
@@ -30,6 +32,10 @@ class Member < ActiveRecord::Base
   
   def fullname
     [first_name, last_name].join(" ")
+  end
+  
+  def lastname_firstname
+    [last_name, first_name].join(", ")
   end
   
   def age

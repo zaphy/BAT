@@ -7,7 +7,7 @@ class Team < ActiveRecord::Base
   
   belongs_to :department
   
-  has_many :team_memberships
+  has_many :team_memberships, :dependent => :destroy
   has_many :members, :through => :team_memberships
 
   belongs_to :trainer, :class_name => :Member

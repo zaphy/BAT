@@ -27,6 +27,7 @@ class MembersController < ApplicationController
   def new
     @member = Member.new
     @member.birthday = Date.today - 5.years
+    @member.membership_started_on = Date.today.beginning_of_month
     @teams = Team.all
 
     respond_to do |format|

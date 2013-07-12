@@ -23,7 +23,6 @@
 <h2>Enabled</h2>
 <table>
   <tr>
-    <th></th>
     <th>Last name</th>
     <th>First name</th>
     <th>Birthday (Age)</th>
@@ -34,9 +33,8 @@
     <th>City</th>
   </tr>
 
-<% @members.each do |member| %>
-  <tr>
-    <td><%= member.official? ? "x" : "" %></td>
+<% @members.each_with_index do |member, idx| %>
+  <tr class="<%= member.official? ? 'official':'' %>">
     <td><%= member.last_name %></td>
     <td><%= member.first_name %></td>
     <td><%= member.birthday %> (<%= member.age %>)</td>

@@ -5,9 +5,9 @@
 <p class="team_member_list">
   <b>Members:</b>
   <ul>
-  <% team.members.each do |member| %>
+  <% team.members.sort_by{|x| x.last_name}.each do |member| %>
     <li>
-    <%= member.fullname %>
+    <%= member.lastname_firstname %>
     </li>
   <% end %>
   </ul>
