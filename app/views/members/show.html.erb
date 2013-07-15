@@ -1,74 +1,53 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Member -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <b>Last name:</b>
-  <%= @member.last_name %>
-</p>
+<dl class="dl-vertical">
+  <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
+  <dd><%= @member.last_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
+  <dd><%= @member.first_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address_street) %>:</strong></dt>
+  <dd><%= @member.address_street %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address_house_number) %>:</strong></dt>
+  <dd><%= @member.address_house_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:postal_code) %>:</strong></dt>
+  <dd><%= @member.postal_code %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
+  <dd><%= @member.city %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:birthday) %>:</strong></dt>
+  <dd><%= @member.birthday %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:membership_started_on) %>:</strong></dt>
+  <dd><%= @member.membership_started_on %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:membership_finished_on) %>:</strong></dt>
+  <dd><%= @member.membership_finished_on || "-" %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:enabled) %>:</strong></dt>
+  <dd><%= @member.enabled %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:trainer) %>:</strong></dt>
+  <dd><%= @member.trainer %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:leader) %>:</strong></dt>
+  <dd><%= @member.leader %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:logistic_responsible) %>:</strong></dt>
+  <dd><%= @member.logistic_responsible %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:kit_manager) %>:</strong></dt>
+  <dd><%= @member.kit_manager %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:communication_responsible) %>:</strong></dt>
+  <dd><%= @member.communication_responsible %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:finance_responsible) %>:</strong></dt>
+  <dd><%= @member.finance_responsible %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:referee) %>:</strong></dt>
+  <dd><%= @member.referee %></dd>
+</dl>
 
-<p>
-  <b>First name:</b>
-  <%= @member.first_name %>
-</p>
-
-<p>
-  <b>member of teams:</b>
-  <ul>
-  <% @member.teams.each do |team| -%>
-    <li><%= link_to team.name, team %></li>
-  <% end -%>
-  </ul>
-</p>
-
-<p>
-  <b>street:</b>
-  <%= @member.address_street %>
-</p>
-
-<p>
-  <b>building number:</b>
-  <%= @member.address_house_number %>
-</p>
-
-<p>
-  <b>Postal code:</b>
-  <%= @member.postal_code %>
-</p>
-
-<p>
-  <b>City:</b>
-  <%= @member.city %>
-</p>
-
-<p>
-  <b>Birthday:</b>
-  <%= @member.birthday %>
-</p>
-
-<p>
-  <b>Membership started on:</b>
-  <%= @member.membership_started_on %>
-</p>
-
-<p>
-  <b>Membership finished on:</b>
-  <%= @member.membership_finished_on %>
-</p>
-
-<p>
-  <b>Enabled:</b>
-  <%= @member.enabled %>
-</p>
-
-<p>
-  <b>has official function:</b>
-  <%= @member.official? %>
-</p>
-
-<p>
-  <b>roles:</b>
-  <%= @member.official_functions.map{|x| x.to_s.humanize}.join(", ") %>
-</p>
-
-
-<%= link_to 'Edit', edit_member_path(@member) %> |
-<%= link_to 'Back', members_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              members_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_member_path(@member), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              member_path(@member),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

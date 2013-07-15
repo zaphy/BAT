@@ -1,4 +1,6 @@
 class MembersController < ApplicationController
+  layout "member"
+  
   # GET /members
   # GET /members.json
   def index

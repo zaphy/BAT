@@ -1,83 +1,110 @@
-<div style="border-style:solid">
-<%= form_for(member) do |f| %>
-  <% if member.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(member.errors.count, "error") %> prohibited this member from being saved:</h2>
-
-      <ul>
-      <% member.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @member, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :last_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :last_name, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :first_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :first_name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :address_street, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :address_street, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :address_house_number, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :address_house_number, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :postal_code, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :postal_code, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :city, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :city, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :birthday, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :birthday, :class => 'date_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :membership_started_on, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :membership_started_on, :class => 'date_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :membership_finished_on, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :membership_finished_on, {:include_blank => true}, {:class => 'date_select'} %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :enabled, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :enabled, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :trainer, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :trainer, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :leader, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :leader, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :logistic_responsible, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :logistic_responsible, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :kit_manager, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :kit_manager, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :communication_responsible, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :communication_responsible, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :finance_responsible, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :finance_responsible, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :referee, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :referee, :class => 'check_box' %>
+    </div>
+  </div>
 
-<div>
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :address_street %><br />
-    <%= f.text_field :address_street %>
-  </div>
-  <div class="field">
-    <%= f.label :address_house_number %><br />
-    <%= f.text_field :address_house_number %>
-  </div>
-  <div class="field">
-    <%= f.label :postal_code %><br />
-    <%= f.text_field :postal_code %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </div>
-</div>
-<div>
-  <div class="field">
-    <%= f.label :birthday %><br />
-    <%= f.date_select :birthday %>
-  </div>
-</div>
-<div style="border-top-style:solid">
-<% teams.each do |team| %>
-  <div class="team_detailed_view">
-    <%= render :partial => "teams/header", :locals => {:team => team} %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                members_path, :class => 'btn' %>
   </div>
 <% end %>
-</div>
-<div style="border-top-style:solid;border-bottom-style:solid; clear:both">
-  <div class="field">
-    <%= f.label :membership_started_on %><br />
-    <%= f.date_select :membership_started_on, :include_blank => true %>
-  </div>
-  <div class="field">
-    <%= f.label :membership_finished_on %><br />
-    <%= f.date_select :membership_finished_on, :include_blank => true %>
-  </div>
-</div>
-<div>
-  <div class="field">
-    <%= f.check_box :enabled %>
-    <%= f.label :enabled? %>
-  </div>
-  <div class="field">
-    <%= f.label :has_official_function? %>
-  </div>
-  <div>
-    <% Member::OFFICIAL_FUNCTIONS.each do |official_function| -%>
-      <%= f.check_box official_function %>
-      <%= f.label official_function %>
-    <% end %>
-  </div>
-</div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-</div>
