@@ -34,7 +34,7 @@
         </td>
         <td>
           <% member.official_functions.each do |official_function| -%>
-            <span class="badge"><%= official_function.to_s.humanize %></span>
+            <%= role_icon(official_function) %>
           <% end -%>
         </td>
         <td>
